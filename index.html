@@ -115,9 +115,9 @@
         .tulip:nth-child(1) .tulip-flower::before,
         .tulip:nth-child(1) .tulip-flower::after { background: #b418ac; }
 
-        .tulip:nth-child(2) .tulip-flower { background: #f121dc; box-shadow: inset -8px -8px 0 #f121dc; }
+        .tulip:nth-child(2) .tulip-flower { background: #ba00a7; box-shadow: inset -8px -8px 0 #ba00a7; }
         .tulip:nth-child(2) .tulip-flower::before,
-        .tulip:nth-child(2) .tulip-flower::after { background: #f121dc; }
+        .tulip:nth-child(2) .tulip-flower::after { background: #ba00a7; }
 
         .letter {
             display: none;
@@ -175,24 +175,6 @@
             background: #c2185b;
         }
 
-        /* Music Button */
-        /* .music-btn { 
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            background: #e91e63;
-            color: white;
-            border: none;
-            font-size: 22px;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.4);
-            z-index: 100;
-            transition: 0.3s;
-        } */
-
         .music-btn:hover {
             transform: scale(1.1);
             background: #c2185b;
@@ -224,6 +206,59 @@
                 opacity: 0;
             }
         }
+        
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+                justify-content: flex-start;
+                padding-top: 40px;
+            }
+
+            h1 {
+                font-size: clamp(1.8rem, 9vw, 2.8rem);
+                margin-bottom: 8px;
+            }
+
+            .subtitle {
+                font-size: clamp(0.95rem, 4vw, 1.1rem);
+                margin-bottom: 25px;
+                padding: 0 10px;
+            }
+
+            .tulips-container {
+                gap: 30px;
+                margin-bottom: 25px;
+            }
+
+            .tulip {
+                width: 80px;
+                height: 125px;
+            }
+
+            .tulip-flower {
+                width: 60px;
+                height: 60px;
+            }
+
+            .letter {
+                width: 95%;
+                padding: 25px 18px;
+                margin-top: 10px;
+            }
+
+            .letter h2 {
+                font-size: 1.6rem;
+            }
+
+            .letter p {
+                font-size: 1rem;
+            }
+
+            .close-btn {
+                padding: 10px 20px;
+                font-size: 0.95rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -249,7 +284,6 @@
             <div class="tulip-flower"></div>
             <div class="tulip-stem"></div>
             <div class="tulip-leaf"></div>
-        </div>
         </div>
     </div>
 
@@ -288,11 +322,9 @@
             
             if (playPromise !== undefined) {
                 playPromise.then(() => {
-
                     isPlaying = true;
                     musicBtn.textContent = '';
                 }).catch(() => {
-
                     isPlaying = false;
                     musicBtn.textContent = '';
                 });
@@ -300,7 +332,6 @@
         });
 
         function openLetter(num) {
-
             if (!isPlaying) {
                 music.play();
                 isPlaying = true;
